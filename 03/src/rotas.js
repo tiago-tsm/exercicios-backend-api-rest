@@ -16,7 +16,7 @@ rotas.get('/livros', livros.listaDeLivros);
  rotas.post('/livros',livros.cadastrarLivros);
  rotas.put('/livros/:id', livros.atualizarUmLivro);
  rotas.patch('/livros/:id/status', livros.atualizarStatusDoLivro);
-// rotas.delete('/convidados/:nome', convidados.excluirConvidado);
+ rotas.delete('/livros/:id', livros.excluirLivro);
 
 
 

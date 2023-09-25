@@ -139,6 +139,23 @@ const atualizarStatusDoLivro =  (req, res) =>{
 
 }
 
+const excluirLivro = (req, res) => {
+    const { id } = req.params;
+
+    const livro = livros.find((livro) => {
+        return livro.id === Number(id);
+    });
+
+    if (!livro) {
+        return res.status(404).json({ mensagem: 'O livro não existe.' });
+    }
+
+    livros = livros.filter((livro) => {
+        return livro.id !== Number(id);
+    });
+
+    res.json({ mensagem: "Livro excluido" });
+}
 
 
 
@@ -150,7 +167,8 @@ module.exports = {
     obterLivros,
     cadastrarLivros,
     atualizarUmLivro,
-    atualizarStatusDoLivro
+    atualizarStatusDoLivro,
+    excluirLivro
     
 };
 
